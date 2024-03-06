@@ -28,6 +28,7 @@ import { AllordersComponent } from './pages/allorders/allorders.component';
 import { MyhttpInterceptor } from './interceptors/myhttp.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { SearchPipe } from './pipe/search.pipe';
 
 
 
@@ -50,6 +51,7 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     ForgetPassComponent,
     PaymentComponent,
     AllordersComponent,
+    SearchPipe,
 
 
 
