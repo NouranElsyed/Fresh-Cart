@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="assets/img/freshcart-logo.svg" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active px-2" aria-current="page" [routerLink]="['/home']" [routerLinkActive]="['bg-main','text-white']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" [routerLink]="['/products']" [routerLinkActive]="['bg-main','text-white']">products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" [routerLink]="['/cart']" [routerLinkActive]="['bg-main','text-white']">cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" [routerLink]="['/Categories']" [routerLinkActive]="['bg-main','text-white']">categories</a>
+        </li>
+
+
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item d-flex align-items-center me-3">
+          <a class="nav-link mx-1 "  href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a class="nav-link mx-1 " href="#">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a class="nav-link mx-1 " href="#">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a class="nav-link mx-1 " href="#">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a class="nav-link mx-1 " href="#">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a class="nav-link mx-1 " href="#">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+
+        </li>
+        <li class="nav-item dropdown list-unstyled">
+          <a class="nav-link dropdown-toggle " role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user text-main"></i>
+
+          </a>
+          <ul class="dropdown-menu">
+            <li role="button" [routerLink]="['/forgetPassword']" routerLinkActive="active_link"><a class="dropdown-item">Forget Password</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" [routerLink]="['/register']" [routerLinkActive]="['bg-main','text-white']">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" [routerLink]="['/login']" [routerLinkActive]="['bg-main','text-white']">Login</a>
+        </li>
+        <li (click)="signOut()" class="nav-item">
+          <a class="nav-link px-2" [routerLink]="['/login']" >Logout</a>
+        </li>
+
+
+      </ul>
+
+    </div>
+  </div>
+</nav>

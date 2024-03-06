@@ -1,0 +1,53 @@
+<section class="register container w-50" id="register">
+  <h2 class="fs-2 fw-semibold me-auto my-4">Register Now :</h2>
+  <div class="alert alert-danger" *ngIf="apiError">
+    {{apiError}}
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+    <div class="w-100">
+      <label for="name"  class="fw-medium my-2 ">Name :</label>
+      <input type="text" formControlName="name" class="form-control">
+      <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors" class="alert alert-danger p-0 mt-2">
+        <p class="m-0 p-1" *ngIf="registerForm.get('name')?.errors?.['required']">Name field can not be empty!</p>
+        <p class="m-0 p-1" *ngIf="registerForm.get('name')?.errors?.['minlength']">Name must have at least 3 character</p>
+        <p class="m-0 p-1" *ngIf="registerForm.get('name')?.errors?.['maxlength']">Name must have not exceed 15 character</p>
+      </div>
+    </div>
+    <div class="w-100">
+      <label for="email" class="fw-medium my-2 ">Email :</label>
+      <input type="email" formControlName="email" class="form-control">
+      <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors" class="alert alert-danger p-0 mt-2">
+        <p class="m-0 p-1" *ngIf="registerForm.get('email')?.errors?.['required']">Email field can not be empty!</p>
+        <p class="m-0 p-1" *ngIf="registerForm.get('email')?.errors?.['email']">Enter a valid Email</p>
+      </div>
+    </div>
+    <div class="w-100">
+      <label for="password" class="fw-medium my-2 ">Password :</label>
+      <input type="password" formControlName="password" class="form-control">
+      <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors" class="alert alert-danger p-0 mt-2">
+        <p class="m-0 p-1" *ngIf="registerForm.get('password')?.errors?.['required']">Password field can not be empty!</p>
+        <p class="m-0 p-1" *ngIf="registerForm.get('password')?.errors?.['pattern']">password must start with capital character and contain number minlength 5 </p>
+      </div>
+    </div>
+    <div class="w-100">
+      <label for="re-password" class="fw-medium my-2 ">re-Password :</label>
+      <input type="password" formControlName="rePassword" class="form-control">
+      <div *ngIf="registerForm.get('rePassword')?.touched && registerForm.get('rePassword')?.errors" class="alert alert-danger p-0 mt-2">
+        <p class="m-0 p-1" *ngIf="registerForm.get('rePassword')?.errors?.['required']">Password field can not be empty!</p>
+        <p class="m-0 p-1" *ngIf="registerForm.get('rePassword')?.errors?.['pattern']">password must start with capital character and contain number minlength 5 </p>
+      </div>
+    </div>
+    <div class="w-100">
+      <label for="phone" class="fw-medium my-2 ">Phone :</label>
+      <input type="tel" formControlName="phone" class="form-control">
+      <div *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.errors" class="alert alert-danger p-0 mt-2">
+        <p class="m-0 p-1" *ngIf="registerForm.get('phone')?.errors?.['required']">phone field can not be empty!</p>
+        <p class="m-0 p-1" *ngIf="registerForm.get('phone')?.errors?.['pattern']">the phone number valid</p>
+      </div>
+    </div>
+    <button [disabled]="registerForm.invalid" class="btn bg-main px-3 ms-auto d-block my-3 text-white ">
+     <!-- <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i> -->
+     <span *ngIf="!isLoading"> Register</span></button>
+     <!--  -->
+  </form>
+</section>

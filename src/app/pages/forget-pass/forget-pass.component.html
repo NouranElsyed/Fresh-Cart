@@ -1,0 +1,27 @@
+<section class="d-flex justify-content-center align-items-center pass">
+  <div  class="w-50 mx-auto rounded bg-main-light  p-3 shadow p-5">
+    <form  *ngIf="step1"  class="w-100 " [formGroup]="forgetForm"  (ngSubmit)="forgetPassword() ">
+      <label for="email">email</label>
+      <input formControlName="email" type="email" class="form-control" id="email">
+      <button [disabled]="forgetForm.invalid"  class="btn text-white bg-main  mt-3 w-100">Forget Password</button>
+      <p *ngIf="msgSuccess" class="alert text-main text-center mt-1 mb-0">{{msgSuccess}}</p>
+      <p *ngIf="errMsg" class="alert text-center text-danger small mt-1 mb-0">{{errMsg}}</p>
+
+    </form>
+    <form  *ngIf="step2" [formGroup]="resetCodeForm" (ngSubmit)="resetCode()" >
+      <label for="resetCode">Reset Code</label>
+      <input formControlName="resetCode" type="text" class="form-control" id="resetCode">
+      <button  [disabled]="resetCodeForm.invalid" class="btn text-white bg-main mt-3 w-100">Reset Code</button>
+      <p *ngIf="msgSuccess"  class="alert text-main text-center mt-1 mb-0">{{msgSuccess}}</p>
+      <p *ngIf="errMsg" class="alert text-center text-danger small mt-1 mb-0">{{errMsg}}</p>
+    </form>
+    <form *ngIf="step3"  [formGroup]="resetPasswordForm"  (ngSubmit)="newPassword()" >
+      <label for="resetPassword">New Password</label>
+      <input formControlName="newPassword"  type="password" class="form-control" id="resetPassword">
+      <button  [disabled]="resetPasswordForm.invalid" class="btn text-white bg-main mt-3 w-100">Reset Password</button>
+      <p *ngIf="msgSuccess" class="alert text-main text-center mt-1 mb-0">{{msgSuccess}}</p>
+      <p *ngIf="errMsg" class="alert text-center text-danger small mt-1 mb-0">{{errMsg}}</p>
+    </form>
+  </div>
+
+
