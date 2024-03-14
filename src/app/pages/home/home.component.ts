@@ -47,7 +47,7 @@ addProduct(id:string,element:HTMLButtonElement):void{
     },
     error:(err)=>{
       console.log('error')
-      this.toastr.warning('Please login first')
+      this.toastr.error('Please login first')
 
 
     }

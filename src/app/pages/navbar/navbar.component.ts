@@ -20,8 +20,11 @@ export class NavbarComponent {
 
         if(_AuthService.getToken.getValue()){
           this.islogin=true
+          console.log(_AuthService.getToken.getValue());
+
         }else{
           this.islogin=false
+          console.log(_AuthService.getToken.getValue());
 
         }
 
@@ -36,6 +39,8 @@ export class NavbarComponent {
   signOut():void{
     localStorage.removeItem('getToken')
     this._Router.navigate(['/login'])
+    this.islogin=false
+
   }
 
 

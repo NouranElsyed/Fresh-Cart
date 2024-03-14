@@ -17,7 +17,7 @@
           <a class="nav-link px-2" [routerLink]="['/Categories']" [routerLinkActive]="['bg-main','text-white']">categories</a>
         </li>
         <li class="nav-item" *ngIf="islogin">
-          <a class="nav-link px-2" [routerLink]="['/cart']" ><i class="fa fa-shopping-cart text-main"></i><div class="badge bg-main text-white">{{numOfCartItems}}</div></a>
+          <a class="nav-link px-2" [routerLink]="['/cart']" ><i class="fa fa-shopping-cart text-main"></i><div class="badge bg-main text-white">{{this.numOfCartItems}}</div></a>
         </li>
 
       </ul>
