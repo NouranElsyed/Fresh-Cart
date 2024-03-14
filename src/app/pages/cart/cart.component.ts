@@ -24,6 +24,8 @@ export class CartComponent implements OnInit {
     this._CartService.deleteCartItem(productId).subscribe({
       next:(response)=>{
         console.log(response);
+      this._CartService.numOfCartItems.next(response.numOfCartItems)
+
         this.cart =  response.data
     this._Renderer2.removeAttribute(element,'disable')
 
@@ -45,12 +47,15 @@ export class CartComponent implements OnInit {
           this.cart= response.data
           console.log(this._CartService);
 
+
         this._Renderer2.removeAttribute(minus,'disable')
         this._Renderer2.removeAttribute(plus,'disable')
 
       }, error:(error)=>{
         this._Renderer2.removeAttribute(minus,'disable')
         this._Renderer2.removeAttribute(plus,'disable')
+
+
 
       }
     })
@@ -66,6 +71,8 @@ clear():void{
       next:(response)=>{
         console.log(response);
         this.cart =  response.data
+      this._CartService.numOfCartItems.next(response.numOfCartItems)
+
       }
     })
     console.log('delete');

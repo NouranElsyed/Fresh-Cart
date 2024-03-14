@@ -40,6 +40,7 @@ addProduct(id:string,element:HTMLButtonElement):void{
   this._CartService.addToCart(id).subscribe({
     next:(response)=>{
       console.log(response);
+      this._CartService.numOfCartItems.next(response.numOfCartItems)
       this.toastr.success(response.message)
 
 
