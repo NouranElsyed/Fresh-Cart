@@ -10,7 +10,11 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
   getToken: BehaviorSubject<string>=new BehaviorSubject('')
   userInfo:any;
-  constructor(private _httpClient:HttpClient) { }
+  constructor(private _httpClient:HttpClient) {
+    if (localStorage.getItem("getToken")){
+      this.getToken.next(JSON.stringify(localStorage.getItem("getToken")))
+    }
+   }
   setUserToken(){
     let token = JSON.stringify(localStorage.getItem("getToken"))
     this.getToken.next(token)

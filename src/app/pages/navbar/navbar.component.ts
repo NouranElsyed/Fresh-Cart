@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent {
   islogin:boolean = false
+  numOfCartItems:number=0
 
-  constructor(private _Router:Router, private _AuthService:AuthService){
+  constructor(private _Router:Router, private _AuthService:AuthService, private _CartService:CartService){
     _AuthService.getToken.subscribe({
       next:(data)=>{
         console.log(_AuthService.getToken.getValue());
+        console.log('hi',);
+
         if(_AuthService.getToken.getValue()){
           this.islogin=true
         }else{
@@ -22,6 +26,9 @@ export class NavbarComponent {
         }
 
       }
+    })
+    this._CartService.numOfCartItems.subscribe(res=>{
+      this.numOfCartItems=res
     })
 
   }
