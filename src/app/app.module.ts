@@ -68,9 +68,15 @@ import { SearchPipe } from './pipe/search.pipe';
     CarouselModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({timeOut: 10000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true}),
+    ToastrModule.forRoot({  closeButton: false,
+
+    newestOnTop: false,
+    progressBar: false,
+    positionClass: "toast-top-full-width",
+    preventDuplicates: false,
+    timeOut: 5000,
+    extendedTimeOut: 1000,
+}),
       NgxSpinnerModule
 
   ],

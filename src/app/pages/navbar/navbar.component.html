@@ -12,7 +12,7 @@
         <li class="nav-item">
           <a class="nav-link px-2" [routerLink]="['/products']" [routerLinkActive]="['bg-main','text-white']">products</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="islogin">
           <a class="nav-link px-2" [routerLink]="['/cart']" [routerLinkActive]="['bg-main','text-white']">cart</a>
         </li>
         <li class="nav-item">
@@ -55,13 +55,13 @@
 
           </ul>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!islogin" class="nav-item">
           <a class="nav-link px-2" [routerLink]="['/register']" [routerLinkActive]="['bg-main','text-white']">Register</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!islogin" class="nav-item">
           <a class="nav-link px-2" [routerLink]="['/login']" [routerLinkActive]="['bg-main','text-white']">Login</a>
         </li>
-        <li (click)="signOut()" class="nav-item">
+        <li *ngIf="islogin" (click)="signOut()" class="nav-item">
           <a class="nav-link px-2" [routerLink]="['/login']" >Logout</a>
         </li>
 

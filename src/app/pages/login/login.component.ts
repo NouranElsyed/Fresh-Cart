@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
   apiError:string='';
+  forPass:boolean= false;
   isLoading: Boolean = false;
 
   loginForm:FormGroup= new FormGroup({
@@ -36,13 +37,16 @@ constructor(private  _authService:AuthService , private _Router:Router){}
         this._Router.navigate(['/home'])
         this.isLoading = false
         localStorage.setItem('getToken',data.token)
+        this._authService.setUserToken()
         this._authService.decodeUser()
+        this.forPass = false
         }
       },
       error:(err) =>{
         console.log(err)
         this.apiError=err.error.message;
         this.isLoading = false
+        this.forPass = true
 
       }
 

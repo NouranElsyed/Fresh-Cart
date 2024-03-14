@@ -1,15 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  getToken: BehaviorSubject<string>=new BehaviorSubject('')
   userInfo:any;
   constructor(private _httpClient:HttpClient) { }
+  setUserToken(){
+    let token = JSON.stringify(localStorage.getItem("getToken"))
+    this.getToken.next(token)
+  }
 
   signUp(info:User) : Observable<any>{
   return  this._httpClient.post('https://ecommerce.routemisr.com/api/v1/auth/signup', info)

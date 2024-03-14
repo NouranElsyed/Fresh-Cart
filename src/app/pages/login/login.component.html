@@ -20,9 +20,12 @@
         <p class="m-0 p-1" *ngIf="loginForm.get('password')?.errors?.['pattern']">password must start with capital character and contain number minlength 5 </p>
       </div>
     </div>
-    <button [disabled]="loginForm.invalid" class="btn bg-main px-3 ms-auto d-block my-3 text-white ">
-     <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
-     <span *ngIf="!isLoading"> login</span></button>
+    <div class="d-flex justify-content-between">
+      <a role="button"  class="text-danger "  *ngIf="forPass" [routerLink]="['/forgetPassword']" routerLinkActive="active_link">Forget Password ?</a>
+      <button [disabled]="loginForm.invalid" class="btn bg-main px-3 ms-auto d-block my-3 text-white ">
+        <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+        <span *ngIf="!isLoading"> login</span></button>
+    </div>
      <!--  -->
   </form>
 </section>

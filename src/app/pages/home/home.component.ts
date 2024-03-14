@@ -36,16 +36,18 @@ ngOnInit(): void {
 }
 
 addProduct(id:string,element:HTMLButtonElement):void{
-  this._Renderer2.setAttribute(element, 'disabled','true')
+
   this._CartService.addToCart(id).subscribe({
     next:(response)=>{
       console.log(response);
       this.toastr.success(response.message)
-      this._Renderer2.removeAttribute(element, 'disabled')
+
 
     },
     error:(err)=>{
-      this._Renderer2.removeAttribute(element, 'disabled')
+      console.log('error')
+      this.toastr.warning('Please login first')
+
 
     }
   })
