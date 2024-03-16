@@ -6,6 +6,7 @@ import { Category } from 'src/app/interfaces/category';
 import { Product} from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+import { WishListService } from 'src/app/services/wish-list.service';
 
 
 @Component({
@@ -16,11 +17,15 @@ import { ProductService } from 'src/app/services/product.service';
 export class HomeComponent implements OnInit{
 term: string ='';
 
-  constructor(private _ProductService:ProductService,private _Renderer2:Renderer2, private _CartService:CartService, private toastr: ToastrService){}
+  constructor(private _ProductService:ProductService,private _Renderer2:Renderer2,
+     private _CartService:CartService, private toastr: ToastrService, private  _WishListService:WishListService){}
   products:Product[] =[];
   categories:Category[] =[];
+  wishListData:string[]=[];
 
 ngOnInit(): void {
+
+
   this._ProductService.getProduct().subscribe({
     next:(response)=>{
       console.log('products' + response.data)
@@ -33,8 +38,31 @@ ngOnInit(): void {
       this.categories = response.data
     }
   })
+  this._WishListService.getWishList().subscribe({
+    next:(response)=>{
+      const arryOfId= response.data.map((item:any)=> item._id)
+      this.wishListData = arryOfId
+    }})
 }
+addWish(prodId:string):void{
+  this._WishListService.addToWishlist(prodId).subscribe({
+    next:(response)=>{
+      this.toastr.success(response.message)
+      console.log(prodId);
 
+      this.wishListData = response.data
+    }})
+}
+reomveWish(prodId:string):void{
+  this._WishListService.removeFromWishList(prodId).subscribe({
+    next:(response)=>{
+      this.toastr.success(response.message)
+
+      this.wishListData = response.data
+
+
+    }})
+}
 addProduct(id:string,element:HTMLButtonElement):void{
 
   this._CartService.addToCart(id).subscribe({

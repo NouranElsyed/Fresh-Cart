@@ -13,11 +13,14 @@ import { CategoryDetailsComponent} from './pages/categoryDetails/categoryDetails
 import { ForgetPassComponent } from './pages/forget-pass/forget-pass.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { AllordersComponent } from './pages/allorders/allorders.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
+
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,title:'Home'},
   {path:'cart',canActivate:[authGuard],component:CartComponent,title:'Cart'},
+  {path:'wishlist',canActivate:[authGuard],component:WishlistComponent,title:'Wish List'},
   {path:'login',component:LoginComponent,title:'Login'},
   {path:'register',component:RegisterComponent,title:'Register'},
   {path:'products',component:ProductsComponent,title:'Products'},

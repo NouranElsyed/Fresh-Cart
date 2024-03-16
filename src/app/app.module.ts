@@ -29,6 +29,7 @@ import { MyhttpInterceptor } from './interceptors/myhttp.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { SearchPipe } from './pipe/search.pipe';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
 
 
 
@@ -52,6 +53,7 @@ import { SearchPipe } from './pipe/search.pipe';
     PaymentComponent,
     AllordersComponent,
     SearchPipe,
+    WishlistComponent,
 
 
 

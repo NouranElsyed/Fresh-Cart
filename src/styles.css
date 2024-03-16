@@ -109,6 +109,24 @@ button{
 }
 .product{
   position: relative;
+  &:hover{
+
+   .heart{
+    right:7px;
+   }
+  }
+
+
+.heart{
+  font-size: 20px;
+  position: absolute;
+  top: 7px;
+  right: -20px;
+  z-index: 20;
+  color: var(--main-color);
+  cursor: pointer;
+  transition: right 0.7s;
+}
 }
 .pass{
   height: 75vh;
@@ -130,3 +148,4 @@ button{
   --bs-btn-disabled-border-color: #0aad0a;
   --bs-gradient: none;
 }
+
