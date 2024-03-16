@@ -30,6 +30,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { SearchPipe } from './pipe/search.pipe';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { BrandsComponent } from './pages/brands/brands.component';
 
 
 
@@ -54,6 +55,7 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
     AllordersComponent,
     SearchPipe,
     WishlistComponent,
+    BrandsComponent,
 
 
 

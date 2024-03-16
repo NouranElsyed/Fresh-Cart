@@ -16,7 +16,10 @@ export class ProductService {
   getCategories() : Observable<any>{
       return  this._httpClient.get(this.baseUrl + `categories`)
       }
-  getProductsCategory(id:string|null) : Observable<any>{
+  getBrands() : Observable<any>{
+        return  this._httpClient.get(this.baseUrl + `brands`)
+        }
+  getDetailsCategory(id:string|null) : Observable<any>{
         return  this._httpClient.get(this.baseUrl + `categories/${id}`)
         }
   getProductDetails(id:string|null) : Observable<any>{

@@ -26,7 +26,7 @@ categoryDetails:Category={
 
 
     }})
-  this._ProductService.getProductsCategory(this.categoryId).subscribe({
+  this._ProductService.getDetailsCategory(this.categoryId).subscribe({
     next:(Response)=>{
       console.log(this.categoryDetails);
 console.log(this.categoryId);

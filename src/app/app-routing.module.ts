@@ -14,6 +14,7 @@ import { ForgetPassComponent } from './pages/forget-pass/forget-pass.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { AllordersComponent } from './pages/allorders/allorders.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { BrandsComponent } from './pages/brands/brands.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:'categories/:id',canActivate:[authGuard],component:CategoryDetailsComponent ,title:'category details'},
   {path:'allorders',canActivate:[authGuard],component:AllordersComponent,title:'allorders'},
   {path:'Categories',component:CategoriesComponent,title:'Categories'},
+  {path:'brands',component:BrandsComponent,title:'Brands'},
   {path:'payment/:id',canActivate:[authGuard],component:PaymentComponent,title:'payment'},
   {path:'forgetPassword',canActivate:[authGuard],component:ForgetPassComponent,title:'forget password'},
   {path:'**',component:NotFoundComponent,title:'Not Found'},

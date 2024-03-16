@@ -12,6 +12,7 @@ export class NavbarComponent {
   islogin:boolean = false
   numOfCartItems:number=0
 
+
   constructor(private _Router:Router, private _AuthService:AuthService, private _CartService:CartService){
     _AuthService.getToken.subscribe({
       next:(data)=>{
@@ -33,6 +34,7 @@ export class NavbarComponent {
     this._CartService.numOfCartItems.subscribe(res=>{
       this.numOfCartItems=res
     })
+
 
   }
 
