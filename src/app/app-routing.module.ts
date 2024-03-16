@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:'Categories',component:CategoriesComponent,title:'Categories'},
   {path:'brands',component:BrandsComponent,title:'Brands'},
   {path:'payment/:id',canActivate:[authGuard],component:PaymentComponent,title:'payment'},
-  {path:'forgetPassword',canActivate:[authGuard],component:ForgetPassComponent,title:'forget password'},
+  {path:'forgetPassword',component:ForgetPassComponent,title:'forget password'},
   {path:'**',component:NotFoundComponent,title:'Not Found'},
 
 

@@ -3,7 +3,7 @@
   <div class="row  g-4 g-xl-3">
     <div *ngFor="let brand of brandData " class="col-sm-6 col-lg-3">
       <div class="product h-100 px-xl-1 overflow-hidden" >
-        <a href="" class="text-decoration-none " [routerLink]="['/brands',brand._id]">
+        <a href="" class="text-decoration-none ">
         <img height="250"  class="w-100" [src]="brand.image" [title]="brand.name" [alt]="brand.name">
         <h3 class="small pt-3 text-center">{{brand.name}}</h3>
         </a>
